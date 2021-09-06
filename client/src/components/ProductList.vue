@@ -1,11 +1,20 @@
 <template>
-  <div>
-    <ProductCard 
-      v-for="product in products"
-      :key="product.id"
-      :product="product"
-    />
-  </div>
+  <v-container>
+    <v-row>
+      <v-col
+        v-for="product in products"
+        :key="product.id"
+        xl="3"
+        lg="3"
+        md="4"
+        sm="6"
+      >
+        <ProductCard 
+          :product="product"
+        />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
