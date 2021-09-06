@@ -3,6 +3,7 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import ProductList from './components/ProductList.vue'
 import ProductPage from './components/ProductPage.vue'
+import vuetify from './plugins/vuetify'
 
 Vue.use(VueRouter)
 
@@ -27,5 +28,6 @@ const router = new VueRouter({
 
 new Vue({
   router,
-  render: h => h(App),
+  vuetify,
+  render: h => h(App)
 }).$mount('#app')
