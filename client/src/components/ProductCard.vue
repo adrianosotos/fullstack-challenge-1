@@ -1,25 +1,35 @@
 <template>
-  <router-link :to="`/product/${product.id}`">
-    <img :src="`http://localhost:5000/images/${product.image}`" />
-    <p>{{ product.shortDescription }}</p>
-    <p>{{ product.price }}</p>
-  </router-link>
+  <v-card :to="`/product/${product.id}`" height="450px">
+    <v-img 
+      :src="`http://localhost:5000/images/${product.image}`"
+      height="250"
+    ></v-img>
+    <v-card-title>{{ product.shortDescription }}</v-card-title>
+    <v-card-text>
+      <p>{{ priceFormmater(product.price) }}</p>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
+import { formatPrice } from '../utils'
+
 export default {
   name: 'ProductCard',
   props: {
     product: {
       type: Object
     }
+  },
+  methods: {
+    priceFormmater (price) {
+      return formatPrice(price)
+    }
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  img {
-    width: 200px;
-  }
+.v-card__text, .v-card__title {
+  word-break: normal;
+}
 </style>
